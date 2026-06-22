@@ -63,3 +63,17 @@ Abrí `routine-data.js`. Cada ejercicio tiene:
 - `travel`: alternativa del modo viaje.
 
 Cuando publiques cambios, actualizá el nombre del caché en `service-worker.js`, por ejemplo de `abi-entrena-v1` a `abi-entrena-v2`, para que el iPhone descargue la nueva versión.
+
+
+## Diseño v2
+
+Esta versión usa la dirección visual **editorial + collage**, con:
+
+- Fondo crema.
+- Rosa, lila y amarillo manteca.
+- Tarjetas con bordes negros y sombras gráficas.
+- Stickers originales de entrenamiento.
+- Pantallas de inicio, rutinas e historial más expresivas.
+- Pantalla de entrenamiento más limpia para conservar la usabilidad.
+
+Para actualizar una publicación existente en GitHub, subí nuevamente todos los archivos y carpetas. GitHub reemplazará los archivos que tengan el mismo nombre. El caché del service worker cambió a `abi-entrena-v2`.
