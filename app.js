@@ -170,16 +170,21 @@
   }
 
   function normalizeSession(session) {
+    // This function runs while `state` itself is still being created.
+    // It must only use static data and the saved session—not `state`.
+    const baseRoutine = BASE.routines?.[session?.routineId];
+
     const normalized = {
       ...session,
       notes: session?.notes || "",
-      routineName: session?.routineName || state?.program?.routines?.[session?.routineId]?.name || "",
-      routineFocus: session?.routineFocus || state?.program?.routines?.[session?.routineId]?.focus || "",
+      routineName: session?.routineName || baseRoutine?.name || "Workout",
+      routineFocus: session?.routineFocus || baseRoutine?.focus || "",
       exercises: { ...(session?.exercises || {}) }
     };
 
     Object.entries(normalized.exercises).forEach(([slotExerciseId, exerciseState]) => {
-      const fallback = getExerciseDefinition(slotExerciseId);
+      const fallback = getStaticExerciseDefinition(slotExerciseId);
+
       normalized.exercises[slotExerciseId] = {
         ...exerciseState,
         originalExerciseId: exerciseState?.originalExerciseId || slotExerciseId,
@@ -202,12 +207,24 @@
     return normalized;
   }
 
+  function getStaticExerciseDefinition(exerciseId) {
+    for (const routine of Object.values(BASE.routines || {})) {
+      const exercise = routine.exercises?.find(item => item.id === exerciseId);
+      if (exercise) return exercise;
+    }
+
+    return EXERCISE_MAP.get(exerciseId) || null;
+  }
+
   function saveState() {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }
 
   function makeId(prefix = "id") {
-    return `${prefix}-${crypto.randomUUID ? crypto.randomUUID() : `${Date.now()}-${Math.random().toString(16).slice(2)}`}`;
+    const randomPart = globalThis.crypto?.randomUUID
+      ? globalThis.crypto.randomUUID()
+      : `${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    return `${prefix}-${randomPart}`;
   }
 
   function escapeHtml(value) {
@@ -2326,4 +2343,5 @@ Please answer using my actual exercise selection and volume. Explain which muscl
   }
 
   render();
+  window.__RECOMP_APP_READY__ = true;
 })();

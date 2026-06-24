@@ -8,10 +8,10 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="apple-mobile-web-app-title" content="Recomp Studio+">
   <meta name="description" content="A personal body recomposition workout planner and tracker with RIR, exercise notes, calendar, activities, progress, and editable routines.">
-  <link rel="manifest" href="./manifest.json">
+  <link rel="manifest" href="./manifest.json?v=2.1">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="icon" href="./icons/icon-192.png">
-  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./styles.css?v=2.1">
   <title>Recomp Studio+</title>
 </head>
 <body>
@@ -69,8 +69,50 @@
   <input id="import-input" type="file" accept="application/json" hidden>
   <div id="modal-root"></div>
 
-  <script src="./exercise-database.js"></script>
-  <script src="./routine-data.js"></script>
-  <script src="./app.js"></script>
+
+  <script>
+    (function () {
+      function showStartupError() {
+        if (window.__RECOMP_APP_READY__) return;
+        var main = document.getElementById("main-content");
+        if (!main) return;
+
+        main.innerHTML =
+          '<section style="margin:20px 0;padding:20px;border:1px solid #DCD4C1;border-radius:24px;background:#fff;color:#555548;">' +
+            '<p style="margin:0 0 5px;font-size:11px;letter-spacing:.08em;color:#818263;font-weight:700;">APP RECOVERY</p>' +
+            '<h2 style="margin:0 0 10px;color:#818263;font-family:Georgia,serif;font-style:italic;">The app could not finish loading</h2>' +
+            '<p style="line-height:1.5;">Reload once after uploading the fixed files. If the page remains blank, reset only this app’s local data below.</p>' +
+            '<button id="recomp-reload" style="width:100%;min-height:48px;margin-top:8px;border:0;border-radius:15px;background:#818263;color:white;font-weight:700;">Reload app</button>' +
+            '<button id="recomp-reset" style="width:100%;min-height:48px;margin-top:8px;border:1px solid #DDBAAE;border-radius:15px;background:#FFFAF2;color:#7d665f;font-weight:700;">Reset this app’s saved data</button>' +
+          '</section>';
+
+        document.getElementById("recomp-reload").onclick = function () {
+          location.reload();
+        };
+
+        document.getElementById("recomp-reset").onclick = function () {
+          if (!confirm("Delete the saved data for Recomp Studio+ on this device?")) return;
+          localStorage.removeItem("recomp-studio-plus-v1");
+          location.reload();
+        };
+      }
+
+      window.addEventListener("error", function () {
+        setTimeout(showStartupError, 0);
+      });
+
+      window.addEventListener("unhandledrejection", function () {
+        setTimeout(showStartupError, 0);
+      });
+
+      window.addEventListener("load", function () {
+        setTimeout(showStartupError, 1200);
+      });
+    })();
+  </script>
+
+  <script src="./exercise-database.js?v=2.1"></script>
+  <script src="./routine-data.js?v=2.1"></script>
+  <script src="./app.js?v=2.1"></script>
 </body>
 </html>

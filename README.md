@@ -23,3 +23,14 @@
 The local analysis works offline. The free-text “Ask AI” button does not expose an API key in the browser. It copies a detailed prompt and opens ChatGPT, where you can paste it.
 
 A fully embedded AI chat would require a secure server-side endpoint and API usage.
+
+
+## v2.1 startup fix
+
+This patch fixes a blank-screen startup error that could occur when the browser already contained workout history from the previous Recomp Studio+ version.
+
+It also:
+
+- cache-busts the JavaScript and CSS files so GitHub Pages does not keep serving the broken cached version;
+- adds a recovery screen instead of leaving the main area blank if a future startup error occurs;
+- includes a safe reload button and an optional local-data reset button.

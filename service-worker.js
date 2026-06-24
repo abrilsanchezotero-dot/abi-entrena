@@ -1,12 +1,12 @@
-const CACHE_NAME = "recomp-studio-plus-v2";
+const CACHE_NAME = "recomp-studio-plus-v2-1-fixed";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css",
-  "./exercise-database.js",
-  "./routine-data.js",
-  "./app.js",
-  "./manifest.json",
+  "./styles.css?v=2.1",
+  "./exercise-database.js?v=2.1",
+  "./routine-data.js?v=2.1",
+  "./app.js?v=2.1",
+  "./manifest.json?v=2.1",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
   "./icons/apple-touch-icon.png"

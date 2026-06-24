@@ -1,1 +1,1 @@
-Upload every file in this folder to the root of your existing recomp-studio-plus GitHub repository. Allow GitHub to replace files with the same names, then click Commit changes.
+Upload all files in this folder to the root of the existing recomp-studio-plus GitHub repository. Replace the files with the same names and commit the changes. Then reload the published page twice.
