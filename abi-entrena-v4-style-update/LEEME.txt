@@ -1,0 +1,1 @@
+Subí estos archivos al repositorio para actualizar solo el estilo: styles.css, index.html, manifest.json, service-worker.js y la carpeta icons. Si GitHub pregunta, confirmá reemplazar. Luego hacé Commit changes.
