@@ -77,3 +77,46 @@ Esta versión usa la dirección visual **editorial + collage**, con:
 - Pantalla de entrenamiento más limpia para conservar la usabilidad.
 
 Para actualizar una publicación existente en GitHub, subí nuevamente todos los archivos y carpetas. GitHub reemplazará los archivos que tengan el mismo nombre. El caché del service worker cambió a `abi-entrena-v2`.
+
+
+## Rutina v3 — recomp
+
+La rutina anterior fue reemplazada por:
+
+1. Día A — Push
+2. Día B — Glúteos/Hams
+3. Día C — Pull
+4. Día D — Piernas/Brazos
+
+Calendario inicial:
+
+- Lunes: Push
+- Martes: Glúteos/Hams
+- Miércoles: descanso
+- Jueves: Pull
+- Viernes: Piernas/Brazos
+- Sábado y domingo: descanso
+
+Los descansos del temporizador se configuraron así:
+
+- Compuestos pesados: 90–120 segundos.
+- Aislaciones: 60–75 segundos.
+- Transición entre los dos curls de la superserie: 15 segundos.
+- Descanso después del segundo curl: 60 segundos.
+
+El Chest Fly está cargado como quinto ejercicio opcional del Día A.
+
+
+## Estilo v4 — aesthetic neutral
+
+Esta versión actualiza la interfaz a una dirección más suave y minimalista, inspirada en una paleta:
+
+- Savory sage `#818263`
+- Avocado smoothie `#C2C395`
+- Blush beet `#DDBAAE`
+- Peach protein `#EFD7CF`
+- Oat latte `#DCD4C1`
+- Honey oatmeal `#EEEAD4`
+- Coconut cream `#FFFAF2`
+
+Se redujo el look collage anterior y se pasó a un estilo más editorial, limpio y “wellness aesthetic”.

@@ -1,273 +1,254 @@
 window.ROUTINE_DATA = {
   appName: "Abi Entrena",
-  cycle: ["lowerA", "upperA", "lowerB", "upperB"],
+  cycle: ["push", "glutesHams", "pull", "quadsArms"],
   defaultSchedule: {
     "0": "rest",
-    "1": "lowerA",
-    "2": "upperA",
+    "1": "push",
+    "2": "glutesHams",
     "3": "rest",
-    "4": "lowerB",
-    "5": "upperB",
+    "4": "pull",
+    "5": "quadsArms",
     "6": "rest"
   },
   recovery: {
     title: "Recuperación activa",
     estimatedMinutes: 25,
     items: [
-      "Caminata suave de 20–30 minutos.",
-      "Movilidad de cadera, hombros y columna durante 5–10 minutos.",
-      "Hidratación, proteína suficiente y sueño.",
-      "No hace falta compensar una sesión perdida: usá “Siguiente entrenamiento”."
+      "Mantené tus pasos habituales sin agregar cardio intenso.",
+      "Hacé 5–10 minutos de movilidad suave si te sentís rígida.",
+      "Priorizá sueño, hidratación y proteína.",
+      "Si cambiás un día, usá “Siguiente entrenamiento” para continuar el ciclo."
     ]
   },
   routines: {
-    lowerA: {
-      name: "Inferior A",
-      focus: "Glúteos · posterior · cuádriceps",
-      estimatedMinutes: 55,
+    push: {
+      name: "Día A — Push",
+      focus: "Pecho · hombros · tríceps",
+      estimatedMinutes: 48,
       exercises: [
         {
-          id: "hip-thrust-machine-a",
-          name: "Impulso de Cadera",
-          equipment: "Máquina",
+          id: "smith-bench-press",
+          name: "Press de Banca",
+          equipment: "Smith",
           sets: 4,
-          reps: "10",
-          targetMin: 10,
+          reps: "6–10",
+          targetMin: 6,
           targetMax: 10,
           rest: 120,
-          travel: "Hip thrust con mancuerna o glute bridge en el piso"
+          travel: "Press de pecho con mancuernas o press de piso"
         },
         {
-          id: "rdl-dumbbell",
+          id: "lateral-raises",
+          name: "Elevaciones Laterales",
+          equipment: "Polea o mancuernas",
+          sets: 3,
+          reps: "12–20",
+          targetMin: 12,
+          targetMax: 20,
+          rest: 60,
+          travel: "Elevaciones laterales con mancuernas o banda"
+        },
+        {
+          id: "overhead-cable-triceps",
+          name: "Extensión Overhead de Tríceps",
+          equipment: "Polea · cabeza larga",
+          sets: 3,
+          reps: "10–15",
+          targetMin: 10,
+          targetMax: 15,
+          rest: 75,
+          travel: "Extensión overhead con mancuerna o banda"
+        },
+        {
+          id: "cable-triceps-pushdown",
+          name: "Tríceps Pushdown",
+          equipment: "Polea · cuerda o barra",
+          sets: 3,
+          reps: "12–15",
+          targetMin: 12,
+          targetMax: 15,
+          rest: 60,
+          travel: "Pushdown con banda o flexiones con agarre cerrado"
+        },
+        {
+          id: "matrix-chest-fly",
+          name: "Chest Fly (opcional)",
+          equipment: "Matrix",
+          sets: 2,
+          reps: "12–15",
+          targetMin: 12,
+          targetMax: 15,
+          rest: 60,
+          travel: "Aperturas con mancuernas o banda"
+        }
+      ]
+    },
+
+    glutesHams: {
+      name: "Día B — Glúteos/Hams",
+      focus: "Glúteos · isquios · cadena posterior",
+      estimatedMinutes: 52,
+      exercises: [
+        {
+          id: "romanian-deadlift",
           name: "Peso Muerto Rumano",
+          equipment: "Barra o mancuernas",
+          sets: 4,
+          reps: "8–10",
+          targetMin: 8,
+          targetMax: 10,
+          rest: 120,
+          travel: "RDL con mancuernas"
+        },
+        {
+          id: "bulgarian-split-squat",
+          name: "Sentadilla Búlgara",
           equipment: "Mancuernas",
           sets: 3,
-          reps: "12",
-          targetMin: 12,
+          reps: "8–12 por pierna",
+          targetMin: 8,
           targetMax: 12,
           rest: 90,
-          travel: "Peso muerto rumano con mancuernas"
+          travel: "Sentadilla búlgara con mancuerna o peso corporal"
         },
         {
-          id: "pendulum-squat",
-          name: "Sentadilla Péndulo",
-          equipment: "Máquina",
+          id: "leg-press-high-wide",
+          name: "Press de Piernas",
+          equipment: "Pies altos y abiertos",
           sets: 3,
-          reps: "10",
+          reps: "10–15",
           targetMin: 10,
-          targetMax: 10,
-          rest: 90,
-          travel: "Sentadilla goblet con mancuerna"
-        },
-        {
-          id: "hip-abduction-a",
-          name: "Abducción de Caderas",
-          equipment: "Máquina",
-          sets: 3,
-          reps: "15",
-          targetMin: 15,
           targetMax: 15,
-          rest: 45,
-          travel: "Caminata lateral con banda o abducción acostada"
+          rest: 90,
+          travel: "Sentadilla goblet con postura amplia"
         },
         {
-          id: "seated-leg-curl",
-          name: "Curl de Pierna Sentado",
-          equipment: "Máquina",
+          id: "matrix-hamstring-curl",
+          name: "Curl de Isquios",
+          equipment: "Matrix",
           sets: 3,
-          reps: "10",
+          reps: "10–15",
           targetMin: 10,
-          targetMax: 10,
-          rest: 90,
+          targetMax: 15,
+          rest: 75,
           travel: "Curl femoral deslizante con toalla o fitball"
         }
       ]
     },
-    upperA: {
-      name: "Superior A",
-      focus: "Espalda · hombros · tríceps",
-      estimatedMinutes: 50,
+
+    pull: {
+      name: "Día C — Pull",
+      focus: "Espalda · deltoides posteriores · bíceps",
+      estimatedMinutes: 48,
       exercises: [
         {
           id: "lat-pulldown",
           name: "Jalón al Pecho",
-          equipment: "Máquina",
+          equipment: "Agarre ancho o neutro",
           sets: 4,
-          reps: "10",
-          targetMin: 10,
-          targetMax: 10,
+          reps: "8–12",
+          targetMin: 8,
+          targetMax: 12,
           rest: 90,
           travel: "Jalón con banda anclada arriba"
         },
         {
-          id: "pec-deck",
-          name: "Mariposa",
-          equipment: "Pec Deck",
-          sets: 3,
-          reps: "13",
-          targetMin: 13,
-          targetMax: 13,
-          rest: 90,
-          group: "Superserie",
-          travel: "Aperturas con mancuernas o banda"
-        },
-        {
-          id: "lateral-raise",
-          name: "Elevaciones Laterales",
-          equipment: "Mancuernas",
-          sets: 3,
-          reps: "8",
-          targetMin: 8,
-          targetMax: 8,
-          rest: 60,
-          group: "Superserie",
-          travel: "Elevaciones laterales con mancuernas o botellas"
-        },
-        {
-          id: "rear-delt-fly",
-          name: "Vuelos Posteriores",
-          equipment: "Máquina",
-          sets: 3,
-          reps: "10",
-          targetMin: 10,
-          targetMax: 10,
-          rest: 90,
-          travel: "Vuelos posteriores inclinada con mancuernas"
-        },
-        {
-          id: "french-press",
-          name: "Press Francés",
-          equipment: "Mancuerna",
-          sets: 3,
-          reps: "18",
-          targetMin: 18,
-          targetMax: 18,
-          rest: 45,
-          travel: "Extensión de tríceps por encima de la cabeza con una mancuerna"
-        },
-        {
-          id: "triceps-pushdown-a",
-          name: "Tríceps con Polea",
-          equipment: "Polea",
-          sets: 3,
-          reps: "10",
-          targetMin: 10,
-          targetMax: 10,
-          rest: 60,
-          travel: "Tríceps con banda o flexiones con agarre cerrado"
-        }
-      ]
-    },
-    lowerB: {
-      name: "Inferior B",
-      focus: "Glúteos · cuádriceps · unilateral",
-      estimatedMinutes: 48,
-      exercises: [
-        {
-          id: "hip-thrust-machine-b",
-          name: "Impulso de Cadera",
-          equipment: "Máquina",
-          sets: 4,
-          reps: "10",
-          targetMin: 10,
-          targetMax: 10,
-          rest: 90,
-          travel: "Hip thrust con mancuerna o glute bridge en el piso"
-        },
-        {
-          id: "leg-press",
-          name: "Press de Piernas",
-          equipment: "Máquina",
-          sets: 3,
-          reps: "8–10",
-          targetMin: 8,
-          targetMax: 10,
-          rest: 90,
-          travel: "Sentadilla goblet o sentadilla búlgara"
-        },
-        {
-          id: "hip-abduction-b",
-          name: "Abducción de Caderas",
-          equipment: "Máquina",
-          sets: 3,
-          reps: "15",
-          targetMin: 15,
-          targetMax: 15,
-          rest: 45,
-          travel: "Caminata lateral con banda o abducción acostada"
-        },
-        {
-          id: "dumbbell-lunge",
-          name: "Zancada",
-          equipment: "Mancuernas",
-          sets: 3,
-          reps: "10",
-          targetMin: 10,
-          targetMax: 10,
-          rest: 90,
-          travel: "Zancada con mancuernas o peso corporal"
-        }
-      ]
-    },
-    upperB: {
-      name: "Superior B",
-      focus: "Espalda · pecho · brazos",
-      estimatedMinutes: 48,
-      exercises: [
-        {
-          id: "seated-row",
+          id: "seated-cable-row",
           name: "Remo Sentado",
-          equipment: "Máquina",
-          sets: 4,
-          reps: "10",
+          equipment: "Polea · agarre neutro",
+          sets: 3,
+          reps: "10–12",
           targetMin: 10,
-          targetMax: 10,
+          targetMax: 12,
           rest: 90,
           travel: "Remo unilateral con mancuerna"
         },
         {
-          id: "incline-db-press",
-          name: "Press de Banca Inclinado",
-          equipment: "Mancuernas",
+          id: "rear-delt-fly-machine",
+          name: "Rear Delt Fly",
+          equipment: "Máquina",
           sets: 3,
-          reps: "10",
-          targetMin: 10,
-          targetMax: 10,
-          rest: 90,
-          travel: "Press inclinado con mancuernas; sin banco, press de piso"
-        },
-        {
-          id: "cable-triceps-extension",
-          name: "Extensión de Tríceps",
-          equipment: "Cable",
-          sets: 3,
-          reps: "15",
-          targetMin: 15,
-          targetMax: 15,
-          rest: 60,
-          travel: "Extensión de tríceps con banda o mancuerna"
-        },
-        {
-          id: "dumbbell-biceps-curl",
-          name: "Curl de Bíceps",
-          equipment: "Mancuernas",
-          sets: 3,
-          reps: "10",
-          targetMin: 10,
-          targetMax: 10,
-          rest: 60,
-          travel: "Curl de bíceps con mancuernas o banda"
-        },
-        {
-          id: "triceps-pushdown-b",
-          name: "Tríceps con Polea",
-          equipment: "Polea",
-          sets: 3,
-          reps: "12",
+          reps: "12–20",
           targetMin: 12,
+          targetMax: 20,
+          rest: 60,
+          travel: "Vuelos posteriores inclinada con mancuernas"
+        },
+        {
+          id: "hammer-curl",
+          name: "Hammer Curl",
+          equipment: "Mancuernas",
+          sets: 3,
+          reps: "10–12",
+          targetMin: 10,
+          targetMax: 12,
+          rest: 15,
+          group: "Superserie",
+          travel: "Hammer curl con mancuernas o banda"
+        },
+        {
+          id: "reverse-hammer-curl",
+          name: "Reverse Hammer Curl",
+          equipment: "Mancuernas",
+          sets: 3,
+          reps: "10–12",
+          targetMin: 10,
           targetMax: 12,
           rest: 60,
-          travel: "Tríceps con banda o flexiones con agarre cerrado"
+          group: "Superserie",
+          travel: "Reverse curl con mancuernas o banda"
+        }
+      ]
+    },
+
+    quadsArms: {
+      name: "Día D — Piernas/Brazos",
+      focus: "Cuádriceps · pantorrillas · tríceps",
+      estimatedMinutes: 47,
+      exercises: [
+        {
+          id: "heel-elevated-goblet-squat",
+          name: "Goblet Squat con Talones Elevados",
+          equipment: "Mancuerna",
+          sets: 3,
+          reps: "10–15",
+          targetMin: 10,
+          targetMax: 15,
+          rest: 90,
+          travel: "Goblet squat con talones elevados"
+        },
+        {
+          id: "close-stance-split-or-sissy",
+          name: "Split Squat Cerrado / Sissy Squat",
+          equipment: "Elegí una variante",
+          sets: 3,
+          reps: "10–12 por pierna",
+          targetMin: 10,
+          targetMax: 12,
+          rest: 90,
+          travel: "Split squat cerrado o sissy squat asistida"
+        },
+        {
+          id: "standing-calf-raise",
+          name: "Elevación de Pantorrillas",
+          equipment: "Máquina de sentadilla",
+          sets: 4,
+          reps: "15–20",
+          targetMin: 15,
+          targetMax: 20,
+          rest: 60,
+          travel: "Elevación de pantorrillas de pie con mancuerna"
+        },
+        {
+          id: "skull-crushers",
+          name: "Skull Crushers",
+          equipment: "Barra EZ",
+          sets: 3,
+          reps: "8–12",
+          targetMin: 8,
+          targetMax: 12,
+          rest: 75,
+          travel: "Skull crushers con mancuernas"
         }
       ]
     }

@@ -1,4 +1,4 @@
-const CACHE_NAME = "abi-entrena-v2";
+const CACHE_NAME = "abi-entrena-v4-aesthetic";
 const ASSETS = [
   "./",
   "./index.html",

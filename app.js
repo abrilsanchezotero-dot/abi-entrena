@@ -19,6 +19,19 @@
   };
 
   let state = loadState();
+
+  // Migrate safely when the workout program changes.
+  Object.keys(DATA.defaultSchedule).forEach(day => {
+    const savedId = state.settings.schedule[day];
+    if (savedId !== "rest" && !DATA.routines[savedId]) {
+      state.settings.schedule[day] = DATA.defaultSchedule[day];
+    }
+  });
+  if (state.currentSession && !DATA.routines[state.currentSession.routineId]) {
+    state.currentSession = null;
+  }
+  saveState();
+
   let currentView = "today";
   let timer = {
     remaining: 0,
