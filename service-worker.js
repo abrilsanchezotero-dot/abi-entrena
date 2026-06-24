@@ -1,18 +1,15 @@
-const CACHE_NAME = "abi-entrena-v4-aesthetic";
+const CACHE_NAME = "recomp-studio-plus-v2";
 const ASSETS = [
   "./",
   "./index.html",
   "./styles.css",
+  "./exercise-database.js",
   "./routine-data.js",
   "./app.js",
   "./manifest.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png",
-  "./icons/apple-touch-icon.png",
-  "./assets/sticker-dumbbell.svg",
-  "./assets/sticker-star.svg",
-  "./assets/sticker-cherry.svg",
-  "./assets/sticker-lightning.svg"
+  "./icons/apple-touch-icon.png"
 ];
 
 self.addEventListener("install", event => {
@@ -30,6 +27,7 @@ self.addEventListener("activate", event => {
 
 self.addEventListener("fetch", event => {
   if (event.request.method !== "GET") return;
+
   event.respondWith(
     caches.match(event.request).then(cached => {
       return cached || fetch(event.request).then(response => {

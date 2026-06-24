@@ -1,18 +1,18 @@
 <!doctype html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#FFFAF2">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  <meta name="apple-mobile-web-app-title" content="Abi Entrena">
-  <meta name="description" content="Rutina de fuerza personal de Abi, con seguimiento de series, descansos e historial.">
+  <meta name="apple-mobile-web-app-title" content="Recomp Studio+">
+  <meta name="description" content="A personal body recomposition workout planner and tracker with RIR, exercise notes, calendar, activities, progress, and editable routines.">
   <link rel="manifest" href="./manifest.json">
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="icon" href="./icons/icon-192.png">
   <link rel="stylesheet" href="./styles.css">
-  <title>Abi Entrena</title>
+  <title>Recomp Studio+</title>
 </head>
 <body>
   <div id="app">
@@ -20,46 +20,56 @@
       <div class="brand-lockup">
         <div class="brand-mark" aria-hidden="true"></div>
         <div>
-          <p class="eyebrow">WELLNESS STRENGTH CLUB</p>
-          <h1 id="page-title">Hoy</h1>
+          <p class="eyebrow">RECOMP · STRENGTH · WELLNESS</p>
+          <h1 id="page-title">Today</h1>
         </div>
       </div>
-      <button id="travel-pill" class="travel-pill" type="button" aria-label="Alternar modo viaje">
-        <span>✦</span> Viaje
+      <button id="travel-pill" class="travel-pill" type="button" aria-label="Toggle travel mode">
+        <span>✦</span> Travel
       </button>
     </header>
 
     <main id="main-content" class="main-content" aria-live="polite"></main>
 
     <aside id="timer-panel" class="timer-panel hidden" aria-live="assertive">
-      <div>
+      <div class="timer-copy">
         <p class="timer-label">REST BREAK</p>
         <strong id="timer-value">01:30</strong>
       </div>
       <div class="timer-actions">
-        <button id="timer-pause" type="button">Pausar</button>
-        <button id="timer-add" type="button">+15 s</button>
-        <button id="timer-skip" type="button">Saltar</button>
+        <button id="timer-pause" type="button">Pause</button>
+        <button id="timer-subtract" type="button">−15</button>
+        <button id="timer-add" type="button">+15</button>
+        <button id="timer-skip" type="button">Skip</button>
       </div>
     </aside>
 
-    <nav class="bottom-nav" aria-label="Navegación principal">
+    <nav class="bottom-nav" aria-label="Main navigation">
       <button class="nav-item active" data-view="today" type="button">
-        <span class="nav-icon">♡</span><span>Hoy</span>
+        <span class="nav-icon">♡</span><span>Today</span>
       </button>
       <button class="nav-item" data-view="routines" type="button">
-        <span class="nav-icon">◌</span><span>Rutinas</span>
+        <span class="nav-icon routine-nav-icon">🏋️</span><span>Routines</span>
+      </button>
+      <button class="nav-item" data-view="calendar" type="button">
+        <span class="nav-icon">▦</span><span>Calendar</span>
+      </button>
+      <button class="nav-item" data-view="coach" type="button">
+        <span class="nav-icon">✦</span><span>Coach</span>
       </button>
       <button class="nav-item" data-view="history" type="button">
-        <span class="nav-icon">↗</span><span>Historial</span>
+        <span class="nav-icon">↗</span><span>Progress</span>
       </button>
       <button class="nav-item" data-view="settings" type="button">
-        <span class="nav-icon">⚙</span><span>Ajustes</span>
+        <span class="nav-icon">⚙</span><span>Settings</span>
       </button>
     </nav>
   </div>
 
   <input id="import-input" type="file" accept="application/json" hidden>
+  <div id="modal-root"></div>
+
+  <script src="./exercise-database.js"></script>
   <script src="./routine-data.js"></script>
   <script src="./app.js"></script>
 </body>
